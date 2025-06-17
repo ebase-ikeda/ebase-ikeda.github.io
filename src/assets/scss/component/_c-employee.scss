@@ -1,0 +1,22 @@
+@use "../global" as g;
+// 社員向けサイトのスタイル
+
+// タイトル
+.c-title-employee {
+	position: relative;
+
+	&:after {
+		content: "社員向けサイト";
+		position: absolute;
+		top: 50%;
+		right: 0;
+		color: var(--color-deep-red);
+	}
+}
+@include g.sp {
+	.c-title-employee {
+		&:after {
+			content: "";
+		}
+	}
+}

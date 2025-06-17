@@ -1,0 +1,61 @@
+@use "../global" as g;
+
+// P-3.会員ログイン画面
+.l-member-container {
+	width: 100%;
+	max-width: var(--max-width-container);
+	margin: 0 auto;
+	padding: g.$gutter-48 g.$gutter-32 0;
+
+	@include g.sp {
+		padding: g.$gutter-16 g.$gutter-16 0;
+	}
+
+	img {
+		width: auto;
+		max-width: 100%;
+	}
+
+	.hdg-lv1, .hdg-lv2 {
+		// margin: 20px 0 0;
+		// padding: 0 0 10px;
+		margin-left: -16px;
+		margin-right: -16px;
+	}
+	.wrap-form-blk {
+		.information-area, .form-element.info, .hr {
+			margin-left: -16px;
+			margin-right: -16px;
+		}
+		.inner-form .wrap-form-element {
+			width: 100%;
+			max-width: 840px;
+			margin: auto;
+			padding: 0;
+		}
+		.lst-form-btn {
+			width: 100%;
+			max-width: 480px;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0;
+		}
+	}
+}
+.l-member-nav-wrap {
+	display: flex;
+	justify-content: space-between;
+	margin-top: g.$gutter-32;
+
+	@include g.sp {
+		flex-direction: column;
+		margin-top: 0;
+	}
+}
+.l-member-body {
+	margin: g.$gutter-32 auto g.$gutter-64;
+
+	@include g.sp {
+		margin-top: g.$gutter-16;
+	}
+}

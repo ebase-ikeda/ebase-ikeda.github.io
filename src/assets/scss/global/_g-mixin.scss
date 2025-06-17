@@ -1,0 +1,196 @@
+// ブレイクポイントを指定
+$pc: 1344px;
+$tablet: 1088px;
+$sp: 736px;
+$ss: 320px;
+
+@mixin pc {
+  @media screen and (min-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin pc-tablet {
+  @media screen and (min-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: ($tablet - 1)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media screen and (max-width: ($sp - 1)) {
+    @content;
+  }
+}
+
+@mixin ss {
+  @media screen and (max-width: ($sp - 1)) {
+    @content;
+  }
+}
+
+//clamp（viewport範囲指定）
+@function clamp-vw($min, $max, $min-view-port: 320, $max-view-port: 1200) {
+  $valiable-part: calc(($max - $min) / ($max-view-port - $min-view-port));
+  $constant: calc(($max - $max-view-port * $valiable-part) / 16);
+  $min-rem: calc($min / 16 * 1rem);
+  $max-rem: calc($max / 16 * 1rem);
+  $variable-rem: calc($constant * 1rem);
+  $variable-vw: calc(100 * $valiable-part * 1vw);
+
+  @return clamp($min-rem, $variable-rem + $variable-vw, $max-rem);
+}
+
+// 自動単語改行
+@mixin auto-line-break {
+	word-break: keep-all;
+	overflow-wrap: anywhere;
+	white-space: pre-wrap;
+}
+
+// hoverアクション
+// 透明度変化
+@mixin hover-effect-opacity($effect-opacity: 0.6, $speed: 0.3s) {
+  transition: opacity $speed ease;
+  
+  &:hover {
+    opacity: $effect-opacity;
+  }
+}
+// 透明度変化＋スケール変化
+@mixin hover-effect-opacity-scale($effect-opacity: 0.6, $effect-scale: 1.05, $speed: 0.3s) {
+  transition: transform $speed ease, opacity $speed ease;
+  
+  &:hover {
+    opacity: $effect-opacity;
+    transform: scale($effect-scale);
+  }
+}
+// スケール変化
+@mixin hover-effect-scale($effect-scale: 1.1, $speed: 0.3s) {
+  transition: transform $speed ease;
+  
+  &:hover {
+    transform: scale($effect-scale);
+  }
+}
+// スケール変化＋ボックスシャドウ追加
+@mixin hover-effect-scale-shadow($effect-scale: 1.1, $speed: 0.3s) {
+  transition: transform $speed ease, box-shadow $speed ease;
+  
+  &:hover {
+    transform: scale($effect-scale);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+// 中の画像要素だけ大きく
+@mixin hover-effect-scale-img($effect-scale: 1.1, $speed: 0.3s) {
+  overflow: hidden; // スケール時に要素がはみ出さないように
+
+  img { // 中のimg要素にトランジションを適用
+    transition: transform  $speed ease, opacity  $speed ease;
+  }
+  
+  &:hover {
+    img {
+      transform: scale( $effect-scale);
+    }
+  }
+}
+// 疑似要素でスライドエフェクト
+@mixin hover-effect-slide($slide-bgcolor: #ff701e, $speed: 0.35s) {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; // スライド要素がはみ出さないように
+  &:after {
+    background: $slide-bgcolor;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: calc(100% + 50px);
+    height: 100%;
+    transform: skewX(-45deg) scale(0, 1);
+    transform-origin: left top;
+    transition: $speed ease-out;
+    z-index: -1;
+  }
+  &:hover {
+    color: #fff;
+    &:after {
+      transform: skewX(-45deg) scale(1, 1);
+    }
+  }
+}
+
+// hoverカスタムパターン1
+@mixin hover-effect-type-1($effect-scale: 0.98, $speed: 0.3s) {
+  transition: all $speed ease;
+  
+  &:hover {
+    transform: scale($effect-scale);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+  }
+}
+
+// hoverカスタムパターン2
+@mixin hover-effect-type-2($speed: 0.3s) {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .3);
+    opacity: 0;
+    transform: scale(.2, .2);
+    transition-property: opacity transform;
+    transition-duration:  $speed;
+    transition-timing-function: ease-in-out;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: scale(1.1, 1.05);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// hoverカスタムパターン3
+@mixin hover-effect-type-3($speed: 0.3s) {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    display: block;
+    width: calc(100% + 16px);
+    height: calc(100% + 16px);
+    background-color: rgba(255, 255, 255, .3);
+    opacity: 0;
+    transform: scale(.2, .2);
+    transition-property: opacity transform;
+    transition-duration:  $speed;
+    transition-timing-function: ease-in-out;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+      transform: scale(1, 1);
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+}

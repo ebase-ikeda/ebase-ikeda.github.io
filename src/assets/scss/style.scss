@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+@use '../../../node_modules/slick-carousel/slick/slick.css';
+@use '../../../node_modules/lity/dist/lity.css';
+@use '../../../node_modules/lightbox2/dist/css/lightbox.css';
+
+// common.scss
+@use "global" as g;
+@use "foundation";
+@use "layout";
+
+// module.scss
+@use "component";
+@use "project";
+@use "utility";
+
+// ヘルプページ（現サイトの移植・修正）
+@use "help";
+
+// 既存オーデリックソース上書き用
+@use "overwrite";
+
+// work.scss
+@use "create";
+
+// print.scss
+@use "print";
+
+// tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

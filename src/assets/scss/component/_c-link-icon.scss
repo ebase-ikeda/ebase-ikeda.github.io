@@ -1,0 +1,207 @@
+@use "../global" as g;
+// リンク要素やアイコンの定義
+
+// リンク要素
+.c-link-text {
+	display: inline-block;
+	text-decoration: underline;
+}
+.c-link-text-delete {
+	display: inline-block;
+	text-decoration: underline;
+	color: var(--color-bright-red);
+
+	.c-icon-delete {
+		&:first-child {
+			margin-right: 0.25em;
+		}
+		&:last-child {
+			margin-left: 0.25em;
+		}	}
+}
+.c-link-chevron-left {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	padding-left: 12px;
+	&:before {
+		content: "";
+		position: absolute;
+		top: -1px;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		vertical-align: middle;
+		width: 6px;
+		height: 6px;
+		border-top: 2px solid var(--color-dark-gray);
+		border-right: 2px solid var(--color-dark-gray);
+		transform: rotate(225deg);
+	}
+}
+.c-link-chevron-right {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	padding-right: 12px;
+	&:after {
+		content: "";
+		position: absolute;
+		top: -1px;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		vertical-align: middle;
+		width: 6px;
+		height: 6px;
+		border-top: 2px solid var(--color-dark-gray);
+		border-right: 2px solid var(--color-dark-gray);
+		transform: rotate(45deg);
+	}
+}
+.c-link-arrow {
+	display: inline-block;
+}
+
+// CSSアイコン
+.c-icon-arrow {
+	display: inline-block;
+	vertical-align: middle;
+	color: #333;
+	line-height: 1;
+	position: relative;
+	width: 1.2em;
+	height: 2px;
+	background: currentColor;
+	flex-shrink: 0;
+
+	&:after {
+		content: '';
+		width: 0.65em;
+		height: 0.65em;
+		border: 2px solid currentColor;
+		border-left: 0;
+		border-bottom: 0;
+		transform: rotate(45deg);
+		transform-origin: top right;
+		position: absolute;
+		top: 50%;
+		right: -0.05em;
+		box-sizing: border-box;
+	}
+	&:first-child {
+		margin-right: 0.25em;
+	}
+	&:last-child {
+		margin-left: 0.25em;
+	}
+}
+
+.c-icon-prev,
+.c-icon-prev-first,
+.c-icon-next,
+.c-icon-next-last {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	&:after {
+		content: "";
+		position: absolute;
+		top: -6px;
+		bottom: 0;
+		margin: auto;
+		vertical-align: middle;
+		width: 6px;
+		height: 6px;
+		border-top: 2px solid var(--color-dark-gray);
+		border-right: 2px solid var(--color-dark-gray);
+	}
+}
+.c-icon-prev,
+.c-icon-prev-first {
+	padding-left: 12px;
+	&:after {
+		left: 0;
+		transform: rotate(225deg);
+	}
+}
+.c-icon-next,
+.c-icon-next-last {
+	padding-right: 12px;
+	&:after {
+		right: 0;
+		transform: rotate(45deg);
+	}
+}
+.c-icon-prev-first {
+	&::before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		vertical-align: middle;
+		width: 6px;
+		height: 12px;
+		border-left: 2px solid var(--color-dark-gray);
+	}
+	&:after {
+		left: 5px;
+	}
+}
+.c-icon-next-last {
+	&::before {
+		content: "";
+		position: absolute;
+		top: -6px;
+		bottom: 0;
+		right: 0;
+		margin: auto;
+		vertical-align: middle;
+		width: 6px;
+		height: 12px;
+		border-right: 2px solid var(--color-dark-gray);
+	}
+	&:after {
+		right: 5px;
+	}
+}
+
+// 画像アイコン
+.c-icon {
+	&-add, &-download, &-delete, &-new-save, &-overwrite-save, &-reload, &-search {
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 1;
+		width: 1.2em;
+		height: 1.2em;
+		background: url(../img/product/icon_add.svg) 0 0 no-repeat;
+		background-size: contain;
+	
+		&:first-child {
+			margin-right: 0.75em;
+		}
+		&:last-child {
+			margin-left: 0.75em;
+		}
+	}
+}
+.c-icon-download {
+	background-image: url(../img/product/icon_download.svg);
+}
+.c-icon-delete {
+	background-image: url(../img/product/icon_delete.svg);
+}
+.c-icon-new-save {
+	background-image: url(../img/product/icon_new_save.svg);
+}
+.c-icon-overwrite-save {
+	background-image: url(../img/product/icon_overwrite_save.svg);
+}
+.c-icon-reload {
+	background-image: url(../img/product/icon_reload.svg);
+}
+.c-icon-search {
+	background-image: url(../img/product/icon_search.svg);
+}

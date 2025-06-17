@@ -1,0 +1,34 @@
+<%
+var top  = top || false;;
+var navToggle  = false;;
+-%>
+<body>
+<div id="wrap"<% if(top){ %> class="top-page"<% } %>>
+    <header class="site-header">
+        <div class="top-head">
+            <div class="inner">
+                <h1 class="top-logo">
+                    <a href="https://www.pilot.co.jp/"><img src="./assets/img/product/logo-pilot.svg" alt=""></a>
+                </h1>
+                <% if(navToggle){ %>
+                <div id="nav-toggle">
+                    <div>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <% } %>
+                <nav class="global-menu">
+                    <ul>
+                        <li>
+                            <a href="https://dcs.mediapress-net.com/iportal/CatalogViewInterfaceStartUpAction.do?method=startUp&mode=PAGE&volumeID=PLT12001&catalogId=21781180000&pageGroupId=&designID=PLTD001&catalogCategoryId=&designConfirmFlg=" target="_blank">総合カタログPDF版<img src="./assets/img/product/catalog.svg" alt=""></a>
+                        </li>
+                        <li class="c-sp-show">
+                            <a href="#" class="js-side-toggle">検索</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>

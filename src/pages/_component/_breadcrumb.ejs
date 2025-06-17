@@ -1,0 +1,14 @@
+	<!-- ******************************* -->
+	<!-- パンくず -->
+	<!-- ******************************* -->
+	<div class="c-breadcrumb">
+		<ul>
+			<% ary.forEach(function (e) { %>
+				<% if(e.link){ %>
+					<li><a href="<%- e.link %>"><%- e.title %></a></li>
+				<% }else{ %>
+					<li><%- e.title %></li>
+				<% } %>
+			<% }); %>
+		</ul>
+	</div>

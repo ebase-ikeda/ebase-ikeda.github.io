@@ -1,0 +1,109 @@
+@use "../global" as g;
+// 社員向けサイトのスタイル
+
+// 社員向けサイトヘッダー
+.head-employee {
+	.site-header {
+		.top-head {
+			background-color: var(--color-deep-red);
+			a {
+				color: #fff !important;
+			}
+			.st0 {
+				fill: #fff !important;
+			}
+			&.fixed {
+				background: var(--color-deep-red);
+				// background-color: #fff;
+
+				a {
+					color: #fff !important;
+				}
+				.st0 {
+					fill: #fff !important;
+				}
+			}
+		}
+	}
+	.menu {
+		a:hover {
+			border-color: rgba(255, 255, 255, 1);
+		}
+	}
+	#nav-toggle span {
+		background: #fff;
+	}
+}
+
+@include g.tablet {
+	.head-employee {
+		.top-head {
+			#global-nav {
+				ul {
+					li {
+						a {
+							color: #000 !important;
+						}
+					}
+				}
+			}
+			&.fixed {
+				#global-nav {
+					ul {
+						li {
+							a {
+								color: #000 !important;
+							}
+						}
+					}
+				}
+				#nav-toggle {
+					span {
+						background: #fff !important;
+					}
+				}
+			}
+			&.open {
+				#nav-toggle {
+					span {
+						background: #000 !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+// E-1.商品情報・検索画面（社員専用）コンテンツ
+.l-search-news {
+	margin: g.$gutter-32 auto g.$gutter-64 ;
+}
+.l-search-catalog {
+	margin: g.$gutter-32 auto g.$gutter-64 ;
+
+	.l-search-catalog-wrap {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: g.$gutter-32;
+	}
+}
+
+@include g.tablet {
+	.l-search-news {
+	}
+	.l-search-catalog {
+		.l-search-catalog-wrap {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}
+@include g.sp {
+	.l-search-news {
+	}
+	.l-search-catalog {
+		.l-search-catalog-wrap {
+			grid-template-columns: repeat(1, 1fr);
+		}
+	}
+}

@@ -1,0 +1,28 @@
+// サイトカラー
+$color-gray-light: #D7D7D7; /* 中間の灰色 */
+$color-gray-lighter: #D7E8F2; /* 明るい灰色 */
+$color-gray-lightest: #F2F2F2; /* 非常に明るい灰色 */
+
+:root {
+  --color-primary: #002F9C; /* サイトカラー */
+  --color-secondary: #023473;
+  --color-primary-light: #D7E8F2;
+  --color-primary-medium: #7d99d8;
+  --color-accent1: #F2CC0F; /* 黄色 */
+  --color-accent2: #BE0503; /* 赤 */
+
+  --color-red: #BE0503; /* 赤 */
+  --color-dark: #001E5A; /* 紺色 */
+  --color-gray-light: #D7D7D7; /* 中間の灰色 */
+  --color-gray-lighter: #D7E8F2; /* 明るい灰色 */
+  --color-gray-lightest: #F2F2F2; /* 非常に明るい灰色 */
+
+  // カラー変数定義
+  --color-text: #2F2F2F; /* テキスト */
+  --color-background: #FFFFFF; /* 背景 */
+  --color-link: #002F9C; /* リンク */
+
+  // 変数設定
+  --color-light-gray:  #{$color-gray-light}; /* 薄いグレー */
+  --color-very-light-gray:  #{$color-gray-lightest}; /* とても薄いグレー */
+}

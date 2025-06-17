@@ -1,0 +1,186 @@
+@use "global" as g;
+// overwrite スタイル
+// 移植したオーデリックソースの調整上書き用ファイル
+
+.wrap-form-blk {
+	.form-element {
+		// フォームの項目名のフォントサイズ調整
+		dt {
+			font-size: 1.6rem;
+			font-weight: 600;
+		}
+		dt, dd {
+			.wrap-type1 {
+				font-size: 1.6rem;
+			}
+		}
+		// フォーム確認での値が無い項目の高さを1行分保持
+		.conf {
+			min-height: calc(1.4rem + 2em);
+		}
+	}
+	input[type="email"] {
+		width: 100%; display: block; border: 1px solid #9B9B9B; background-color: #eee; padding: 0.5em; line-height: normal; box-sizing: border-box; height: 44px; font-size: 1.4rem;
+	}
+}
+
+// style_parts.cssの一部移植
+// 全て移植するとshared_v3/css/style.cssと競合して一部画面のデザインが崩れるため
+.dl-desc-blk { margin-top: 30px; padding: 23px 30px 25px; }
+.dl-desc-blk .desc-link > a:hover span { text-decoration: underline; }
+.lst-note > li .blank01 { text-decoration: underline; }
+
+.dl-desc-blk { margin-top: 20px; background-color: #eee; padding: 23px 20px 40px; }
+
+.dl-desc-blk .desc-hdg { font-size: 2rem; line-height: 1.7; font-weight: 500; padding-bottom: 14px; border-bottom: 1px solid #CED0DA; }
+.dl-desc-blk .desc-inner { margin-top: 17px; }
+.dl-desc-blk .desc-txt { font-size: 1.6rem; line-height: 1.6; }
+.dl-desc-blk .desc-txt + .desc-txt { margin-top: 20px; }
+.dl-desc-blk .desc-link { margin-top: 25px; }
+.dl-desc-blk .desc-link > a { text-decoration: none; color: #000; font-size: 1.6rem; line-height: 1.6; font-weight: 500; position: relative; padding-left: 20px; display: inline-block; }
+.dl-desc-blk .desc-link > a::before { left: 2px; position: absolute; content: '\003009'; color: #C70133; display: inline-block; }
+
+.dl-desc-blk .lst-note { margin-top: 20px; }
+
+.lst-note { margin-top: 20px; }
+
+.lst-note > li { position: relative; padding-left: 1.2em; font-size: 1.4rem; line-height: 1.8; }
+
+.lst-note > li::before { position: absolute; left: 0; content: '\00203b'; }
+
+.lst-note-pt2 { margin-top: 20px; }
+
+.lst-note-pt2 > li { position: relative; padding-left: 1.2em; font-size: 1.4rem; line-height: 1.8; }
+
+.lst-note-pt2 > li::before { position: absolute; left: 0; content: '\00ff0a'; }
+
+.lst-pt1 { margin-top: 30px; }
+
+.lst-pt1 li { margin-bottom: 10px; font-size: 1.6rem; line-height: 1.6; color: #000; }
+
+.lst-pt1 li ul { margin-top: 10px; margin-left: 1em; }
+
+.lst-pt1 li a { position: relative; display: inline-block; color: #000; text-decoration: none; }
+
+.lst-pt1 li a span { text-decoration: none; }
+
+.lst-carret li { font-size: 1.6rem; line-height: 1.6; color: #000; }
+
+.lst-carret li a { position: relative; display: inline-block; color: #000; text-decoration: none; }
+
+.lst-carret li a::before { display: block; position: absolute; color: #C70133; }
+
+.lst-carret li span { display: inline-block; position: relative; padding: 0 0 0 16px; }
+
+.lst-carret.lst-right-caret li a::before { content: '\003009'; font-size: 1.6rem; top: 0; left: 0; }
+
+.lst-carret.lst-left-caret li a::before { content: '\003008'; font-size: 1.6rem; top: 0; left: -6px; }
+
+.lst-carret.lst-down-caret li a::before { content: '\003009'; font-size: 1.2rem; top: 6px; left: -4px; -webkit-transform: rotate(90deg); transform: rotate(90deg); }
+
+.lst-square li { font-size: 1.6rem; line-height: 1.6; color: #000; }
+
+.lst-square li span { display: inline-block; position: relative; padding: 0 0 0 20px; }
+
+.lst-square li span::before { content: '\0025a0'; display: block; color: #000; position: absolute; top: 0; left: 0; bottom: 0; margin: auto; }
+
+.lst-pt2 > li { position: relative; font-size: 1.6rem; color: #000; padding-left: 16px; line-height: 1.9; font-style: normal; }
+
+.lst-pt2 > li::before { content: '\0025a0'; display: block; position: absolute; top: 0; left: 0; color: #000; }
+
+.lst-pt3 > li { position: relative; font-size: 1.6rem; color: #000; padding-left: 20px; line-height: 1.9; }
+
+.lst-pt3 > li::before { content: '\0030fb'; display: block; position: absolute; top: 0; left: 0; color: #000; }
+
+.lst-pt4 { margin-left: 20px; }
+
+.lst-pt4 > li { counter-increment: counter-number; position: relative; font-size: 1.6rem; color: #000; padding-left: 16px; line-height: 1.9; }
+
+.lst-pt4 > li::before { content: counter(counter-number) "."; display: block; position: absolute; top: 0; left: 0; color: #000; }
+
+.txt-bold { font-weight: bold}
+
+// 郵便番号ボタンのdisabledデザイン
+.btn-zip-pt1 { 
+	&:disabled {
+		background-color: var(--color-medium-gray);
+		opacity: 0.3;
+	}
+ }
+
+// 入力チェック（jQuery.Validation用）のスタイル
+.wrap-form-blk {
+	input.parsley-error {
+		&[type="text"] {
+			border-color: #c80233;
+		}
+		&[type="password"] {
+			border-color: #c80233;
+		}
+	}
+	textarea.parsley-error {
+		border-color: #c80233;
+	}
+	select.parsley-error {
+		border-color: #c80233;
+	}
+	span.parsley-error {
+		color: #c80233;
+		margin: 5px 0;
+		font-size: 1.4rem;
+		display: block;
+	}
+}
+
+.c-error-container {
+	display: none;
+	ul.c-error-massage {
+		list-style: none;
+		border: 2px solid #c80233;
+		margin: 30px auto 10px;
+		padding: 20px;
+
+		&.c-visible {
+			display: block;
+		}
+		li {
+			color: #c80233;
+			margin: 8px 0;
+			padding: 0;
+			font-size: 1.4rem;
+
+			&:before {
+				content: "*";
+				width: 1em;
+			}
+			span.invalid {
+				display: inline;
+			}
+		}
+	}
+}
+.parsley-errors-list {
+    display: none; 
+}
+@media (min-width: 769px) {
+	.c-error-container {
+		padding: 0 225px;
+	}
+}
+
+.p-login-note {
+	border: 1px solid #000;
+	margin: 32px 0 0;
+	padding: 8px;
+	list-style: none;
+	font-size: 1.4rem;
+	line-height: 1.8;
+
+	li {
+		margin: 8px;
+		padding: 0;
+	}
+	.p-login-note-title {
+		font-size: 1.4rem;
+	}
+}

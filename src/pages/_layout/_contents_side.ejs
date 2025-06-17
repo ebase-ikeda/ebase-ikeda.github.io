@@ -1,0 +1,78 @@
+<aside>
+    <div class="l-side-search">
+        <h1 class="p-side-title">商品検索</h1>
+        <div class="p-side-box">
+            <div class="c-control c-control-group p-control-search">
+                <label><input type="radio" class="c-radio" value="" checked><span>フリーワード</span></label>
+                <label><input type="radio" class="c-radio" value=""><span>品番</span></label>
+                <label><input type="radio" class="c-radio" value=""><span>JAN</span></label>
+            </div>
+            <div class="c-control">
+                <input type="text" class="c-text" value="" placeholder="キーワードを入力">
+            </div>
+            <div class="c-control">
+                <button type="submit" class="c-button c-button-search">検索<i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <div class="p-side-box">
+            <div class="c-name">価格帯検索<small>（税抜き）</small></div>
+            <div class="c-control c-control-group">
+                <input type="text" class="c-text c-price" value="" placeholder="価格を入力">
+                <span>～</span>
+                <input type="text" class="c-text c-price" value="" placeholder="価格を入力">
+            </div>
+            <div class="c-name">環境配慮商品検索</div>
+            <div class="c-control">
+                <label><input type="checkbox" class="c-checkbox" value="" checked><span>グリーン購入法適合商品</span></label>
+                <label><input type="checkbox" class="c-checkbox" value=""><span>エコマーク認定商品</span></label>
+                <label><input type="checkbox" class="c-checkbox" value=""><span>「エコ商品ねっと」掲載商品</span></label>
+            </div>
+            <div class="c-control">
+                <button type="submit" class="c-button c-button-search">検索<i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+        <h1 class="p-side-title-sub">カテゴリから探す</h1>
+        <div class="p-side-box">
+            <ul class="c-category-tree js-category-tree">
+                <% var treeListData = [
+                    {name: 'クラフト', sub: [{name: 'サブカテゴリ', sub: ''},{name: 'サブカテゴリ', sub: ''}]},
+                    {name: '万年筆', sub: [{name: 'サブカテゴリ', sub: ''},{name: 'サブカテゴリ', sub: ''}]},
+                    {name: 'シャープペンシル', sub: [{name: 'サブカテゴリ', sub: ''},{name: 'サブカテゴリ', sub: ''}]},
+                    {name: '油性ボールペン', sub: [{name: 'サブカテゴリ', sub: ''},{name: 'サブカテゴリ', sub: ''}]},
+                    {name: 'ゲルインキボールペン・水性ボールペン', sub: [{name: 'サブカテゴリ', sub: ''},{name: 'サブカテゴリ', sub: ''}]},
+                    {name: '多色ボールペン・多機能筆記具', sub: ''},
+                    {name: 'フリクションシリーズ', sub: ''},
+                    {name: 'サインペン・マーカー', sub: ''},
+                    {name: 'ボードマーカー', sub: ''},
+                    {name: 'アートシリーズ', sub: ''},
+                    {name: 'スタイラスペン（入力ペン）', sub: ''},
+                    {name: '修正用品・事務用文具', sub: ''},
+                    {name: 'シリーズ文具', sub: ''},
+                    {name: 'シース', sub: ''},
+                    {name: '筆入', sub: ''},
+                    {name: 'レザーグッズ', sub: ''},
+                    {name: '手帳・ノート', sub: ''},
+                    {name: 'バッグ', sub: ''},
+                    {name: 'ボード', sub: ''},
+                    {name: 'その他文具', sub: ''},
+                    {name: 'OA関連用品・電子文具', sub: ''},
+                    {name: 'パック商品', sub: ''},
+                ] %>
+                <% treeListData.forEach(function (e) { %>
+                    <li>
+                        <a href="product-result1.html"><%- e.name %></a>
+                        <% if (e.sub) { %>
+                            <ul>
+                            <% e.sub.forEach(function (dataSub) { %>
+                                <li>
+                                    <a href="product-result1.html"><%- dataSub.name %></a>
+                                </li>
+                            <% }); %>
+                            </ul>
+                        <% }; %>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+</aside>

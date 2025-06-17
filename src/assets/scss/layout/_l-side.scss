@@ -1,0 +1,194 @@
+@use "../global" as g;
+
+// サイド検索エリア
+aside {
+	flex-shrink: 0;
+}
+.l-side-search {
+	width: 285px;
+	height: 100%;
+	background: var(--color-very-light-gray);
+
+	.p-side-title {
+		display: flex;
+		align-items: center;
+		color: #fff;
+		background: var(--color-secondary);
+		font-size: 1.3rem;
+		padding: 1.25rem  1rem  1.25rem  0;
+
+		&::before {
+			content: "";
+			width: 2rem;
+			height: 1px;
+			background-color: #fff;
+			margin-right: 0.5em;
+		}
+	}
+	.p-side-title-sub {
+		display: flex;
+		align-items: center;
+		color: var(--color-text);
+		border-bottom: 1px solid var(--color-light-gray);
+		font-size: 1.1rem;
+		padding: 1.25rem  1rem  1.25rem  0;
+
+		&::before {
+			content: "";
+			width: 2rem;
+			height: 1px;
+			background-color: var(--color-text);
+			margin-right: 0.5em;
+		}
+	}
+	.p-side-box {
+		padding: 1rem 1rem;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid var(--color-light-gray);
+		}
+		.c-name {
+			font-size: 1.1rem;
+		}
+		.c-control, input.c-text, textarea.c-textarea, select.c-select, input.c-checkbox, input.c-radio {
+			font-size: 0.9rem;
+		}
+		.c-button {
+			font-size: 1rem;
+		}
+		input.c-text {
+			padding: 0.5rem 1rem;
+		}
+		.p-control-search {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+	ul.c-category-tree {
+		margin: 0 -0.5rem;
+		font-size: 0.9rem;
+		li {
+			ul {
+				margin-left: 1rem;
+				display: none;
+			}
+			a {
+				padding: 0.75rem 0;
+				display: flex;
+				align-items: center;
+				padding-left: 0;
+				transition: 0.5s;
+
+				&:hover {
+					color: var(--color-primary);
+					opacity: 0.8;
+				}
+				&:before {
+					content: '';
+					font: var(--fa-font-solid);
+					font-size: 1em;
+					margin-right: 0.5em;
+					width: 1em;
+					flex-shrink: 0;
+				}
+			}
+			&.js-tree-item {
+				> a {
+					&:before {
+						content: '\2b';
+					}
+				}
+			}
+			&.js-tree-open {
+				> a {
+					&:before {
+						content: '\f068';
+					}
+				}
+			}
+		}
+	}
+}
+
+@include g.sp {
+	.js-side-toggle {
+		&::after {
+			font: var(--fa-font-solid);
+			content: "\f002";
+			width: 1em;
+			height: 1em;
+			text-align: center;
+			text-indent: 0;
+		}
+		&.is-open {
+			&::after {
+				content: "\f00d";
+			}
+		}
+	}
+	.c-breadcrumb {
+		opacity: 1;
+		transition: .3s ease-in;
+	}
+	aside {
+		position: absolute;
+		width: 100%;
+		opacity: 0;
+		left: -100%;
+		transition: .4s ease-in;
+
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: -100%;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background: rgba($color: #000000, $alpha: 0.6);
+			transition: .5s ease-in;
+			z-index: 1;
+		}
+		.l-side-search {
+			position: relative;
+			left: -100%;
+			transition: .5s ease-in;
+			z-index: 2;
+		}
+	}
+
+	// サイドオープン
+	body.l-side-open {
+		.c-breadcrumb {
+			transform: translateY(-100%);
+			opacity: 0;
+			height: 0;
+			padding-top: 0;
+			padding-bottom: 0;
+			transition: .2s ease-in-out;
+		}
+		footer {
+			display: none;
+		}
+		main {
+			position: fixed;
+			left: 0;
+		}
+		aside {
+			position: absolute;
+			left: 0;
+			opacity: 1;
+
+			&:after {
+				opacity: 1;
+				left: 0;
+				transition: .5s ease-in;
+			}
+		}
+		.l-side-search {
+			left: 0;
+			transition: .5s ease-in;
+			transition-delay: 0;
+		}
+	}
+}

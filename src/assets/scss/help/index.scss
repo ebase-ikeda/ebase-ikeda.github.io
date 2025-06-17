@@ -1,0 +1,797 @@
+// help スタイル
+// 商品検索・ダウンロードの使い方
+// 旧ページから移植したものを現HP用に調整
+
+// ------------------------------------
+// "shared_v2/css/common.css" より
+// ------------------------------------
+#help {
+  line-height: 1.5;
+
+  a:link {
+    color: #333;
+    text-decoration: underline;
+  }
+
+  a:visited {
+    color: #410061;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: #c03;
+    text-decoration: none;
+  }
+
+  a:active {
+    color: #c03;
+    text-decoration: none;
+  }
+
+  #container {
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 100%;
+  }
+
+  #content {
+    position: relative;
+    width: 960px;
+    min-height: 500px;
+    margin: 0 auto;
+
+    body#popup & {
+      min-height: inherit;
+    }
+  }
+
+  .section {
+    margin-bottom: 2.5em;
+
+    .section {
+      margin-bottom: 1.25em;
+    }
+  }
+
+  /*
+    title / header
+    */
+  .subhead {
+    margin-bottom: 0.83em;
+    padding: 0.67em 10px 0.42em;
+    border-top: 1px solid #d9d9d9;
+    background-color: #f2f2f2;
+    font-weight: normal;
+  }
+
+  .bold-border {
+    margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #d9d9d9;
+    font-weight: bold;
+  }
+
+  .header-bold,
+  .bold {
+    margin-bottom: 0.5em;
+    font-weight: bold !important;
+  }
+
+  .normal {
+    font-weight: normal;
+  }
+
+  /*
+        arrow
+        */
+  a.arr,
+  span.arr,
+  ul.arr li a {
+    display: inline-block;
+    padding-left: 10px;
+    background: url(../img/help/arr.png) no-repeat 0 0.42em;
+  }
+
+  ul.arr {
+    margin-top: 10px;
+  }
+
+  .mb15px {
+    margin-bottom: 15px;
+  }
+
+  .mb05em {
+    margin-bottom: 0.5em;
+  }
+
+  .mb075em {
+    margin-bottom: 0.75em;
+  }
+
+  .mb1em {
+    margin-bottom: 1em;
+  }
+
+  .mb125em {
+    margin-bottom: 1.25em;
+  }
+
+  .mb15em {
+    margin-bottom: 1.67em;
+  }
+
+  .mb2em {
+    margin-bottom: 2em;
+  }
+
+  .mb25em {
+    margin-bottom: 2.5em;
+  }
+
+  .mb3em {
+    margin-bottom: 2.92em;
+  }
+
+  .indent {
+    margin-left: 1em;
+  }
+
+  .mt1em {
+    margin-top: 1em;
+  }
+
+  .mt5pt {
+    margin-top: 5pt;
+  }
+
+  ul.arr {
+    li {
+      margin-top: 0.5em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      ul.tree {
+        margin-top: 0.5em;
+        margin-left: 1em;
+      }
+    }
+  }
+
+  a.arr-circle,
+  ul.arr-circle li a {
+    display: inline-block;
+    padding-left: 16px;
+    background: url(/shared_v2/images/arr_circle.gif) no-repeat 0 0.17em;
+  }
+
+  ul.arr-circle {
+    li {
+      margin-bottom: 0.83em;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  a.arr-back {
+    display: inline-block;
+    padding-left: 10px;
+    background: url(/shared_v2/images/arr_back.gif) no-repeat 0 0.42em;
+  }
+
+  .arr-circle-gray {
+    display: inline-block;
+    padding-left: 16px;
+    background: url(/shared_v2/images/arr_circle_gray.gif) no-repeat 0 0.2em;
+  }
+
+  /*
+        list
+        */
+  .list-square {
+    li {
+      margin-bottom: 0.5em;
+      padding-left: 8px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      &:before {
+        content: "";
+        width: 0.75em;
+        height: 0.75em;
+        background: #333;
+        margin-right: 4px;
+        display: inline-block;
+      }
+    }
+  }
+
+  .list-annotation {
+    li {
+      text-indent: -1em;
+      margin-left: 1em;
+      margin-bottom: 0.33em;
+      font-size: 83.3%;
+    }
+  }
+
+  .list-menu-red,
+  .list-menu-gray {
+    .title {
+      margin-bottom: 0.75em;
+      padding: 1em 7px 1.25em;
+      text-align: center;
+      background: url(/shared_v2/images/bg_menu_bottom.gif) repeat-x left bottom;
+
+      &.list-menu-red {
+        background-color: #cc0033;
+        color: #fff;
+      }
+
+      &.list-menu-gray {
+        background-color: #e5e5e5;
+        color: #555;
+      }
+    }
+
+    .link {
+      margin-top: 1em;
+      padding-top: 1em;
+      background: url(/shared_v2/images/bg_border_dashed.gif) repeat-x;
+    }
+
+    .hover {
+      background-color: #fbebef;
+
+      a {
+        color: #cc0033;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .list-order {
+    list-style-type: decimal;
+
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      margin-top: 0.5em;
+      margin-left: 2em;
+
+      &:first-child,
+      &.list-order-custom li {
+        margin-top: 0.5em;
+      }
+    }
+
+    li li {
+      margin-left: 0;
+    }
+
+    &.list-order-custom li:first-child {
+      margin-top: 0.5em;
+    }
+
+    .list-order-custom li {
+      overflow: hidden;
+      _zoom: 1;
+
+      .order {
+        float: left;
+      }
+
+      .item {
+        overflow: hidden;
+        _zoom: 1;
+      }
+    }
+  }
+
+  .list-anchor {
+    margin-bottom: 1em;
+
+    li {
+      float: left;
+      min-width: 116px;
+      margin: 0 -1px 1em 0;
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+      white-space: nowrap;
+
+      a {
+        display: block;
+        padding: 0.25em 11px;
+        text-align: center;
+      }
+
+      span {
+        display: inline-block;
+        padding-left: 12px;
+        background: url(/shared_v2/images/arr_open.png) no-repeat 0 0.5em;
+      }
+    }
+  }
+
+  /*
+        アイコンセクション
+        */
+  .icon {
+    vertical-align: middle;
+
+    &-center {
+      vertical-align: middle;
+      margin: 0 4px 0 3px;
+    }
+  }
+  /*
+        tab menu
+        */
+  #tab-menu {
+    margin-bottom: 15px;
+    padding-bottom: 6px;
+    background: url(/shared_v2/images/bg_tab_menu.gif) repeat-x left bottom;
+
+    li {
+      float: left;
+      margin-left: 1px;
+      font-weight: bold;
+
+      a,
+      em {
+        display: block;
+        padding: 11px 0 10px;
+        border: 1px solid #e3e3e3;
+        text-align: center;
+      }
+
+      em {
+        background-color: #c03;
+
+        span {
+          display: inline-block;
+          padding-left: 10px;
+          background: url(/shared_v2/images/arr_white_open.png) no-repeat 0;
+          font-weight: bold;
+          color: #fff;
+        }
+      }
+    }
+
+    &.tab-5col li {
+      width: 191px;
+    }
+    &.tab-5col li:first-child {
+      width: 192px;
+      margin-left: 0;
+    }
+    &.tab-2col li {
+      width: 350px;
+      margin-left: 1px;
+    }
+    &.tab-6col2 li {
+      width: 159px;
+    }
+    &.tab-6col2 li:first-child {
+      width: 159px;
+      margin-left: 0;
+    }
+
+    &.tab-6col {
+      li {
+        width: 113px;
+
+        &.wd {
+          width: 130px;
+        }
+
+        a,
+        em {
+          display: block;
+          padding: 5px 0 3px 5px;
+          border: 1px solid #e3e3e3;
+          text-align: center;
+          min-height: 30px;
+          height: auto !important;
+          height: 30px;
+
+          &.wd {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+  // ------------------------------------
+  // "product/help/css/style.css" より
+  // ------------------------------------
+  /*
+        container
+        */
+  .icon {
+    margin-bottom: 0.3em;
+  }
+
+  /*
+                list
+                */
+  .list-annotation {
+    li {
+      font-size: 100%;
+    }
+  }
+
+  * html .list-square {
+    li {
+      overflow: hidden;
+      zoom: 1;
+    }
+  }
+
+  /*
+                anchor list
+                */
+  .list-anchor-red {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    padding: 9px 12px;
+    text-align: center;
+
+    li {
+      width: 320px;
+      margin: 0;
+      padding: 0;
+      border-right: 1px solid #ccc;
+      border-left: 1px solid #ccc;
+
+      &:not(:last-child) {
+        border-right: none;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 0.25em 11px;
+      text-align: center;
+    }
+
+    span {
+      display: inline-block;
+      padding-left: 12px;
+      background: url(../img/help/arr_open.png) no-repeat 0 0.5em;
+    }
+
+    #contents & {
+      border-radius: 4px;
+      background-color: #f2f2f2;
+      background-image: none;
+      text-align: center;
+    }
+
+    * html .column-2 & {
+      margin-bottom: 2em;
+    }
+  }
+}
+
+// ------------------------------------
+// "common/css/layout.css" より
+// ------------------------------------
+#help {
+  /* $headings -------------------- */
+  .bar {
+    padding: 5px 13px 4px;
+    background: #000;
+    color: #fff;
+    font-size: 20px !important;
+    line-height: 1.8;
+    font-weight: normal;
+
+    a {
+      color: #fff;
+    }
+
+    + p,
+    + .subhead {
+      margin-top: 10px;
+    }
+  }
+
+  /* ----------------------------------------
+$others
+---------------------------------------- */
+
+  /* $margin -------------------- */
+
+  @mixin margin-top($amount) {
+    margin-top: $amount !important;
+  }
+  .margintop0 {
+    @include margin-top(0);
+  }
+  .margintop10 {
+    @include margin-top(10px);
+  }
+
+  .marginleft0 {
+    margin-left: 0 !important;
+  }
+
+  .margincenter {
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  /* $position -------------------- */
+
+  .relative {
+    display: block;
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  /* $border -------------------- */
+
+  .separatorline {
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+
+    > *:first-child,
+    .contnt-left &,
+    .contnt-right & {
+      margin-top: 30px !important;
+    }
+  }
+
+  .border-cleargray {
+    border-style: solid;
+    border-color: #f0f0f0;
+  }
+  /* ----------------------------------------
+$table & background
+---------------------------------------- */
+
+  table {
+    width: 100%;
+    font-size: 1.4rem;
+
+    &.border,
+    &.bg-gray {
+      border-top: 1px solid #e0e0e0;
+      border-left: 1px solid #e0e0e0;
+
+      th,
+      td {
+        padding: 0.5em 10px;
+        border-right: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+      }
+    }
+
+    &.center th,
+    &.center td {
+      text-align: center;
+    }
+
+    &.bg-gray {
+      max-width: 800px;
+      thead th {
+        background-color: #f2f2f2;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      tbody th {
+        background-color: #fafafa;
+      }
+    }
+  }
+
+  .bg-gray {
+    background-color: #666;
+  }
+
+  table.bg-gray {
+    background-color: #fff;
+  }
+
+  .bg-red {
+    background-color: #c80233;
+  }
+
+  /* ----------------------------------------
+$text
+---------------------------------------- */
+
+  .left {
+    text-align: left;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .small {
+    font-size: 12px;
+  }
+
+  .red {
+    color: #c70232;
+  }
+  /* ----------------------------------------
+$listmark
+---------------------------------------- */
+  .listmark,
+  .asterisk,
+  .dot,
+  .kome,
+  .square {
+    position: relative;
+    padding-left: 1em;
+
+    > li,
+    > dt {
+      position: relative;
+      padding-left: 1em;
+
+      &:before {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1em;
+      }
+    }
+
+    &:before {
+      content: "" !important;
+    }
+
+    &.asterisk:before {
+      content: "\00ff0a";
+    }
+    &.dot:before,
+    #footer-nav .wrapper > ul ul li:before {
+      content: "\0030fb";
+    }
+    &.kome:before {
+      content: "\00203b";
+    }
+    &.square:before {
+      content: "\0025a0";
+    }
+  }
+
+  ul.listmark,
+  dl.listmark {
+    padding-left: 0;
+  }
+
+  span.listmark:before {
+    line-height: 1;
+  }
+
+  /* ----------------------------------------
+$tab-contents, $tabmenu
+---------------------------------------- */
+  #tabmenu {
+    margin-top: 32px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+
+    > li {
+      position: relative;
+      top: 1px;
+      left: 0;
+      border: 1px solid #ddd;
+      background-color: #fbfbfb;
+      text-align: center;
+      display: inline-block;
+      margin-left: 2px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &.current {
+        border-bottom-color: #fff;
+
+        a {
+          background-color: #fff;
+
+          span {
+            display: inline-block;
+            padding-bottom: 1px;
+            border-bottom: 3px solid #ca0a37;
+            color: #ca0a37;
+          }
+        }
+      }
+
+      a {
+        display: block;
+        box-sizing: border-box;
+        text-decoration: none;
+        padding-top: 10px;
+        width: 114px;
+        height: 43px;
+        color: #505050;
+        font-size: 12px;
+      }
+
+      ul {
+        display: none;
+        position: absolute;
+        top: 44px;
+        left: -1px;
+        width: 116px;
+        background-color: #848484;
+
+        li:not(:last-child) {
+          border-bottom: 1px solid #c2c2c2;
+        }
+
+        a {
+          display: block;
+          padding-top: 6px;
+          padding-bottom: 5px;
+          color: #fff;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  /* ----------------------------------------
+  clearfix
+  ---------------------------------------- */
+  @mixin clearfix {
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+  }
+
+  .cf {
+    @include clearfix;
+  }
+
+  .clear {
+    clear: both;
+  }
+
+  /* ----------------------------------------
+  popup header logo
+  ---------------------------------------- */
+
+  #popup header#popup-custom .logo {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+    margin-top: 5px;
+  }
+}

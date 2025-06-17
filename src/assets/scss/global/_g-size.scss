@@ -1,0 +1,35 @@
+// 必要なSassモジュールをインポート
+@use 'sass:math';
+
+// コンテンツ幅や余白など
+// SCSS変数
+$max-width-container: 1344px;
+$gutter: 2rem;
+$gutter-half: 1rem;
+$gutter-negative: -2rem;
+$gutter-half-negative: -1rem;
+
+$gutter-8: 8px;
+$gutter-16: 16px;
+$gutter-32: 32px;
+$gutter-40: 40px;
+$gutter-48: 48px;
+$gutter-56: 56px;
+$gutter-64: 64px;
+$gutter-72: 72px;
+$gutter-80: 80px;
+
+// CSS変数
+:root {
+  --max-width-container: #{$max-width-container}; /* コンテンツの最大幅 */
+}
+:root {
+  /* 左右の余白：基本は32px */
+  --gutter-h: #{$gutter};
+  --gutter-h-small: #{math.div($gutter, 2)};
+
+  /* 上下の余白：基本は8pxの倍数 */
+  @for $i from 1 through 12 {
+    --gutter-v-#{8 * $i}: #{8 * $i}px;
+  }
+}

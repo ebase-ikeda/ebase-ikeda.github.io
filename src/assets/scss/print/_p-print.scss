@@ -1,0 +1,33 @@
+@use "../global" as g;
+
+@media print {
+    h1, h2, h3, h4, h5, h6 {
+        page-break-after: avoid;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+	.r-top-head header, footer {
+		display: none;
+	}
+	.l-detail-body {
+		margin: 16px auto;
+	}
+	.l-search-nav-wrap {
+		margin-top: 0;
+	}
+	.l-search-container {
+		padding: 0 16px;
+	}
+	.c-search-sub-nav, .l-foot-sub-nav, .c-tab-wrap.p-detail-search-wrap {
+		display: none;
+	}
+
+    @page {
+        size: A4;
+        margin: 1em;
+    }
+}
+

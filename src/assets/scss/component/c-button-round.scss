@@ -1,0 +1,16 @@
+@use "../global" as g;
+
+// 会員画面ボタン
+.c-button-round {
+  display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	line-height: 18px;
+	padding: 8px; /* 内部の余白 */
+	background-color: #fff; /* 背景色 */
+	// border: 1px solid var(--color-medium-gray); /* 枠線 */
+	box-sizing: border-box; /* パディングとボーダーを幅に含める */
+	font-size: 1.4rem;
+	white-space: nowrap;
+	cursor: pointer;
+}

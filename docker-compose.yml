@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: node:20-alpine
+    ports:
+      - 3000:3000
+    working_dir: /app
+    build: .
+    volumes:
+      # - .:/app:cached
+      - .:/app
+      - /app/node_modules
+
+    command: gulp
+    # command: sh -c "npm install && gulp"

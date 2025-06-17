@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja" class="">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>目次</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/style.css?ver20190522">
+	<style>
+		body {
+			overflow: auto;
+			min-width: auto;
+			font-size: 14px;
+		}
+		body * {
+			box-sizing: border-box;
+		}
+		.page-list__link{
+			font-size: 14px;
+			max-width: 600px;
+			text-align: center;
+			margin: auto;
+		}
+		.title{
+			font-size: 21px;
+			text-align: center;
+			margin-top: 50px;
+		}
+		.control, .button{
+			font-size: 14px;
+		}
+		.button{
+            color: #fff;
+            background: #111;
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+		}
+		.button.disabled{
+            opacity: 0.35;
+		}
+		.sub-link {
+			list-style: none;
+			margin: -10px 0 0;
+			padding: 0;
+		}
+		.sub-link li {
+			margin: 5px 10px;
+			padding: 0;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+
+	<section class="section">
+		<div class="page-list__link">
+
+<%# 【関数】商品一覧を定義 %>
+<% fnPageLink = function(dataList){ %>
+		<% dataList.forEach(function (e) { %>
+			<div class="field">
+				<p class="control">
+					<a target="_blank" href="<%- e.file %>.html" class="button <%- e.class %>"><%= e.name %></a>
+				</p>
+				<% if(e.sub && e.sub.length > 0){ %>
+					<ul class="sub-link">
+					<% e.sub.forEach(function(subE) { %>
+						<li class="mt-10">
+							<a target="_blank" href="<%- subE.file %>.html" class="<%- subE.class %>"><%= subE.name %></a>
+						</li>
+					<% }); %>
+				</ul>
+				<% } %>
+			</div>
+		<% }); %>
+<% }; %>
+
+			<p class="title">目次</p>
+
+<%- fnPageLink([
+	{file:'page1',class:'',name:'Q-1.iPhone実機スクロール不具合検証と対策'},
+	{file:'page2',class:'',name:'Q-2.WEBページ高速化の施策検証-施策なし'},
+	{file:'page3',class:'',name:'Q-2.WEBページ高速化の施策検証-検証1'},
+	{file:'page4',class:'',name:'Q-2.WEBページ高速化の施策検証-検証2'},
+	{file:'loading',class:'',name:'Q-3.loadingアニメーション候補案'},
+	{file:'page5',class:'',name:'Q-4.階層構造のレイアウト-検証'},
+	{file:'page6',class:'',name:'Q-5.iPhone実機画像不具合1の検証と対策'},
+	{file:'page7',class:'',name:'Q-6.iPhone実機画像不具合2の検証と対策'},
+	{file:'demo-aspect-ratio',class:'',name:'Q-7.aspect-ratioが効かない条件の検証'},
+	{file:'kuretake-renewal',class:'',name:'呉竹デザインの作成'},
+]); %>
+
+		</div>
+	</section>
+
+
+</body>
+</html>

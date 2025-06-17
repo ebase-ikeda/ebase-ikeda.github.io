@@ -1,0 +1,21 @@
+# 「.AppleDouble」フォルダを除外
+.AppleDouble/
+
+# 「.DS_Store」や「._.DS_Store」を除外
+*.DS_Store
+
+# スワップファイルを除外
+.*.swp
+
+# あらゆる階層の「cache」フォルダの中身だけを除外。
+# 「cache」フォルダ自体は無視しない。
+# 詳しくは下記のリンクを。
+**/cache/*
+!.gitkeep
+
+# 「node_modules」フォルダを除外
+node_modules/
+*package-lock.json
+# 「dist」フォルダを除外
+dist/
+

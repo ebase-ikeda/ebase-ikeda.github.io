@@ -1,0 +1,77 @@
+@use "../global" as g;
+// ヘッダーのスタイル
+
+.site-header {
+	.top-head {
+		padding: 1.2rem 2rem;
+
+		.inner {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.top-logo {
+			img {
+				height: 42px;
+				margin-top: -8px;
+			}
+		}
+		.global-menu {
+			ul {
+				display: flex;
+				gap: 10px;
+				li {
+					a {
+						background: #fff;
+						border: 1px solid #bbb;
+						padding: 0.5rem 1rem;
+						display: flex;
+						align-items: center;
+
+						// @include g.hover-effect-opacity;
+					}
+					img {
+						height: 1.2em;
+						padding-left: 0.25em;
+					}
+				}
+			}
+			// 透明度だけの非表示だと横スクロールが出るためdisplayでの制御に変更
+			.c-sp-show {
+				display: none;
+			}
+		}
+	}
+
+	@include g.sp {
+		.top-head {
+			padding: 0.75rem 1rem;
+
+			.top-logo {
+				img {
+					height: 36px;
+				}
+			}
+			.global-menu {
+				ul {
+					li {
+						a {
+							padding: 0.25rem 0.5rem;
+							text-indent: -9999px;
+							font-size: 1.5em;
+						}
+						img {
+							height: 1.2em;
+							padding-left: 0;
+						}
+					}
+				}
+			// 透明度だけの非表示だと横スクロールが出るためdisplayでの制御に変更
+			.c-sp-show {
+					display: block;
+				}
+			}
+		}
+	}
+
+}

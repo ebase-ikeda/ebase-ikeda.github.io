@@ -1,0 +1,48 @@
+@use "../global" as g;
+
+// 幅・高さ
+.u-w100 {
+	width: 100%;
+}
+.u-h100 {
+	height: 100%;
+}
+
+// color
+.u-text-red {
+	color: var(--color-red);
+}
+// text
+.u-text-nowrap {
+    white-space: nowrap;
+}
+// link
+.u-text-link {
+	color: var(--color-primary);
+	text-decoration: underline;
+	// @include g.hover-effect-opacity;
+}
+
+// flex
+.u-control-flex {
+	display: flex;
+}
+
+.u-justify-between {
+	justify-content: space-between;
+}
+.u-justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+// table
+.u-cell-left {
+	text-align: left;
+}
+.u-cell-center {
+	text-align: center;
+}
+.u-cell-right {
+	text-align: right;
+}
