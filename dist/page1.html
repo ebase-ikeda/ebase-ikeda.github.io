@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>全画面画像表示</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #b2d5fd;
+			background: linear-gradient(to bottom, #67b2e3, #cfe4fb);
+		}
+
+		.content {
+			height: 2000px;
+			padding: 10px;
+		}
+
+		.is-hide {
+			display: none !important;
+		}
+
+		.fixed-menu {}
+
+		.innner-menu-1 {
+			position: fixed;
+		}
+
+		.innner-menu-2 {}
+
+		.innner-menu-1 .menu-item,
+		.innner-menu-2 .menu-item {
+			background: #e78696;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 50%;
+			height: 120px;
+			padding: 10px;
+		}
+
+		.innner-menu-2 .menu-item {
+			background: #16c659;
+			left: 50%;
+		}
+
+		.slide-menu {}
+
+		.slide-inner-menu-1,
+		.slide-inner-menu-2 {
+			background: #e78696;
+			border-radius: 10px;
+			padding: 10px;
+			position: fixed;
+			inset: 0;
+			margin: auto;
+			width: 45%;
+			height: 100%;
+			transform: translateY(100%);
+			transition: all ease 0.5s;
+		}
+
+		.slide-inner-menu-1 {
+			left: 20px;
+			right: auto;
+		}
+
+		.slide-inner-menu-2 {
+			background: #16c659;
+			opacity: 0;
+			left: auto;
+			right: 20px;
+		}
+
+		.is-on>.slide-inner-menu-1,
+		.is-on>.slide-inner-menu-2 {
+			transform: translateY(300px);
+		}
+
+		.is-on>.slide-inner-menu-2 {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<p>コンテンツ一番上の位置</p>
+		<p>iPhone実機スクロールでのツールバー縮小での不具合を検証</p>
+		<label>
+			<input type="radio" name="menuType" value="fixed" checked> 固定メニュー </label>
+		<label>
+			<input type="radio" name="menuType" value="slide"> スライド表示 </label>
+		<button id="toggleButton">スライド表示・非表示</button>
+	</div>
+	<div class="fixed-menu">
+		<div class="innner-menu-1">
+			<div class="menu-item">固定メニューエリア ×<br><small>親要素がfixed</small><br><small>bottom:0;のずれが発生する</small></div>
+		</div>
+		<div class="innner-menu-2">
+			<div class="menu-item">固定メニューエリア 〇<br><small>親要素はfixedでは無い</small><br><small>bottom:0;のずれは発生しない</small></div>
+		</div>
+	</div>
+	<div class="slide-menu">
+		<div class="slide-inner-menu-1">画面外に配置している要素 ×<br><small>inset: 0;とmargin: auto;を指定</small><br><small>translateY(100%)で画面外にいるはずが一瞬表示される</small></div>
+		<div class="slide-inner-menu-2">画面外に配置している要素〇×<br><small>opacity: 0;を指定</small><br><small>透明度を０にしたため表示されるまで見えない</small></div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			const toggleButton = document.getElementById('toggleButton');
+			const slideInnerMenu = document.querySelector('.slide-menu');
+			toggleButton.addEventListener('click', function() {
+				slideInnerMenu.classList.toggle('is-on');
+			});
+		});
+		// ページ読み込み時にイベントリスナーを設定
+		document.addEventListener('DOMContentLoaded', function() {
+			const radioButtons = document.querySelectorAll('input[name="menuType"]');
+			radioButtons.forEach((radio) => {
+				radio.addEventListener('change', function() {
+					toggleMenu(this.value);
+				});
+			});
+			// 初回選択された時にメニューを表示
+			toggleMenu(document.querySelector('input[name="menuType"]:checked').value);
+		});
+		// メニューの表示を制御する関数
+		function toggleMenu(selectedMenu) {
+			const fixedMenu = document.querySelector('.fixed-menu');
+			const slideMenu = document.querySelector('.slide-menu');
+			const toggleButton = document.getElementById('toggleButton');
+			// メニューの表示・非表示を制御
+			if (selectedMenu === 'fixed') {
+				slideMenu.classList.add('is-hide');
+				toggleButton.classList.add('is-hide');
+				fixedMenu.classList.remove('is-hide');
+			} else if (selectedMenu === 'slide') {
+				fixedMenu.classList.add('is-hide');
+				slideMenu.classList.remove('is-hide');
+				toggleButton.classList.remove('is-hide');
+			}
+		}
+	</script>
+</body>
+</html>

@@ -17,5 +17,5 @@
 node_modules/
 *package-lock.json
 # 「dist」フォルダを除外
-dist/
+# dist/
 

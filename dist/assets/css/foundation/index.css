@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Tilt+Warp&display=swap");
+@import url("https://use.fontawesome.com/releases/v6.4.2/css/all.css");
+:root {
+  --max-width-container: 1344px; /* コンテンツの最大幅 */
+  /* 左右の余白：基本は32px */
+  --gutter-h: 2rem;
+  --gutter-h-small: 1rem;
+  /* 上下の余白：基本は8pxの倍数 */
+  --gutter-v-8: 8px;
+  --gutter-v-16: 16px;
+  --gutter-v-24: 24px;
+  --gutter-v-32: 32px;
+  --gutter-v-40: 40px;
+  --gutter-v-48: 48px;
+  --gutter-v-56: 56px;
+  --gutter-v-64: 64px;
+  --gutter-v-72: 72px;
+  --gutter-v-80: 80px;
+  --gutter-v-88: 88px;
+  --gutter-v-96: 96px;
+}
+
+/* 中間の灰色 */
+/* 明るい灰色 */
+/* 非常に明るい灰色 */
+:root {
+  --color-primary: #002F9C; /* サイトカラー */
+  --color-secondary: #023473;
+  --color-primary-light: #D7E8F2;
+  --color-primary-medium: #7d99d8;
+  --color-accent1: #F2CC0F; /* 黄色 */
+  --color-accent2: #BE0503; /* 赤 */
+  --color-red: #BE0503; /* 赤 */
+  --color-dark: #001E5A; /* 紺色 */
+  --color-gray-light: #D7D7D7; /* 中間の灰色 */
+  --color-gray-lighter: #D7E8F2; /* 明るい灰色 */
+  --color-gray-lightest: #F2F2F2; /* 非常に明るい灰色 */
+  --color-text: #2F2F2F; /* テキスト */
+  --color-background: #FFFFFF; /* 背景 */
+  --color-link: #002F9C; /* リンク */
+  --color-light-gray: #D7D7D7; /* 薄いグレー */
+  --color-very-light-gray: #F2F2F2; /* とても薄いグレー */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Noto Sans JP", "ヒラギノ角ゴ ProN", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+.lightbox {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 40px);
+  justify-content: center;
+}
+
+.lb-data .lb-close {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}

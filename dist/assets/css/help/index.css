@@ -1,0 +1,675 @@
+@charset "UTF-8";
+#help {
+  line-height: 1.5;
+  /*
+    title / header
+    */
+  /*
+        arrow
+        */
+  /*
+        list
+        */
+  /*
+        アイコンセクション
+        */
+  /*
+        tab menu
+        */
+  /*
+        container
+        */
+  /*
+                list
+                */
+  /*
+                anchor list
+                */
+}
+#help a:link {
+  color: #333;
+  text-decoration: underline;
+}
+#help a:visited {
+  color: #410061;
+  text-decoration: underline;
+}
+#help a:hover {
+  color: #c03;
+  text-decoration: none;
+}
+#help a:active {
+  color: #c03;
+  text-decoration: none;
+}
+#help #container {
+  font-size: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#help #content {
+  margin: 0 auto;
+  min-height: 500px;
+  position: relative;
+  width: 960px;
+}
+body#popup #help #content {
+  min-height: inherit;
+}
+#help .section {
+  margin-bottom: 2.5em;
+}
+#help .section .section {
+  margin-bottom: 1.25em;
+}
+#help .subhead {
+  background-color: #f2f2f2;
+  border-top: 1px solid #d9d9d9;
+  font-weight: normal;
+  margin-bottom: 0.83em;
+  padding: 0.67em 10px 0.42em;
+}
+#help .bold-border {
+  border-bottom: 1px solid #d9d9d9;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+#help .header-bold,
+#help .bold {
+  font-weight: bold !important;
+  margin-bottom: 0.5em;
+}
+#help .normal {
+  font-weight: normal;
+}
+#help a.arr,
+#help span.arr,
+#help ul.arr li a {
+  background: url(../img/help/arr.png) no-repeat 0 0.42em;
+  display: inline-block;
+  padding-left: 10px;
+}
+#help ul.arr {
+  margin-top: 10px;
+}
+#help .mb15px {
+  margin-bottom: 15px;
+}
+#help .mb05em {
+  margin-bottom: 0.5em;
+}
+#help .mb075em {
+  margin-bottom: 0.75em;
+}
+#help .mb1em {
+  margin-bottom: 1em;
+}
+#help .mb125em {
+  margin-bottom: 1.25em;
+}
+#help .mb15em {
+  margin-bottom: 1.67em;
+}
+#help .mb2em {
+  margin-bottom: 2em;
+}
+#help .mb25em {
+  margin-bottom: 2.5em;
+}
+#help .mb3em {
+  margin-bottom: 2.92em;
+}
+#help .indent {
+  margin-left: 1em;
+}
+#help .mt1em {
+  margin-top: 1em;
+}
+#help .mt5pt {
+  margin-top: 5pt;
+}
+#help ul.arr li {
+  margin-top: 0.5em;
+}
+#help ul.arr li:first-child {
+  margin-top: 0;
+}
+#help ul.arr li ul.tree {
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+#help a.arr-circle,
+#help ul.arr-circle li a {
+  background: url(/shared_v2/images/arr_circle.gif) no-repeat 0 0.17em;
+  display: inline-block;
+  padding-left: 16px;
+}
+#help ul.arr-circle li {
+  margin-bottom: 0.83em;
+}
+#help ul.arr-circle li:last-of-type {
+  margin-bottom: 0;
+}
+#help a.arr-back {
+  background: url(/shared_v2/images/arr_back.gif) no-repeat 0 0.42em;
+  display: inline-block;
+  padding-left: 10px;
+}
+#help .arr-circle-gray {
+  background: url(/shared_v2/images/arr_circle_gray.gif) no-repeat 0 0.2em;
+  display: inline-block;
+  padding-left: 16px;
+}
+#help .list-square li {
+  margin-bottom: 0.5em;
+  padding-left: 8px;
+}
+#help .list-square li:last-of-type {
+  margin-bottom: 0;
+}
+#help .list-square li:before {
+  background: #333;
+  content: "";
+  display: inline-block;
+  height: 0.75em;
+  margin-right: 4px;
+  width: 0.75em;
+}
+#help .list-annotation li {
+  font-size: 83.3%;
+  margin-bottom: 0.33em;
+  margin-left: 1em;
+  text-indent: -1em;
+}
+#help .list-menu-red .title,
+#help .list-menu-gray .title {
+  background: url(/shared_v2/images/bg_menu_bottom.gif) repeat-x left bottom;
+  margin-bottom: 0.75em;
+  padding: 1em 7px 1.25em;
+  text-align: center;
+}
+#help .list-menu-red .title.list-menu-red,
+#help .list-menu-gray .title.list-menu-red {
+  background-color: #cc0033;
+  color: #fff;
+}
+#help .list-menu-red .title.list-menu-gray,
+#help .list-menu-gray .title.list-menu-gray {
+  background-color: #e5e5e5;
+  color: #555;
+}
+#help .list-menu-red .link,
+#help .list-menu-gray .link {
+  background: url(/shared_v2/images/bg_border_dashed.gif) repeat-x;
+  margin-top: 1em;
+  padding-top: 1em;
+}
+#help .list-menu-red .hover,
+#help .list-menu-gray .hover {
+  background-color: #fbebef;
+}
+#help .list-menu-red .hover a,
+#help .list-menu-gray .hover a {
+  color: #cc0033;
+  text-decoration: none;
+}
+#help .list-order {
+  list-style-type: decimal;
+}
+#help .list-order ul {
+  list-style-type: none;
+}
+#help .list-order li {
+  margin-left: 2em;
+  margin-top: 0.5em;
+}
+#help .list-order li:first-child, #help .list-order li.list-order-custom li {
+  margin-top: 0.5em;
+}
+#help .list-order li li {
+  margin-left: 0;
+}
+#help .list-order.list-order-custom li:first-child {
+  margin-top: 0.5em;
+}
+#help .list-order .list-order-custom li {
+  overflow: hidden;
+  _zoom: 1;
+}
+#help .list-order .list-order-custom li .order {
+  float: left;
+}
+#help .list-order .list-order-custom li .item {
+  overflow: hidden;
+  _zoom: 1;
+}
+#help .list-anchor {
+  margin-bottom: 1em;
+}
+#help .list-anchor li {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  float: left;
+  margin: 0 -1px 1em 0;
+  min-width: 116px;
+  white-space: nowrap;
+}
+#help .list-anchor li a {
+  display: block;
+  padding: 0.25em 11px;
+  text-align: center;
+}
+#help .list-anchor li span {
+  background: url(/shared_v2/images/arr_open.png) no-repeat 0 0.5em;
+  display: inline-block;
+  padding-left: 12px;
+}
+#help .icon {
+  vertical-align: middle;
+}
+#help .icon-center {
+  margin: 0 4px 0 3px;
+  vertical-align: middle;
+}
+#help #tab-menu {
+  background: url(/shared_v2/images/bg_tab_menu.gif) repeat-x left bottom;
+  margin-bottom: 15px;
+  padding-bottom: 6px;
+}
+#help #tab-menu li {
+  float: left;
+  font-weight: bold;
+  margin-left: 1px;
+}
+#help #tab-menu li a,
+#help #tab-menu li em {
+  border: 1px solid #e3e3e3;
+  display: block;
+  padding: 11px 0 10px;
+  text-align: center;
+}
+#help #tab-menu li em {
+  background-color: #c03;
+}
+#help #tab-menu li em span {
+  background: url(/shared_v2/images/arr_white_open.png) no-repeat 0;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  padding-left: 10px;
+}
+#help #tab-menu.tab-5col li {
+  width: 191px;
+}
+#help #tab-menu.tab-5col li:first-child {
+  margin-left: 0;
+  width: 192px;
+}
+#help #tab-menu.tab-2col li {
+  margin-left: 1px;
+  width: 350px;
+}
+#help #tab-menu.tab-6col2 li {
+  width: 159px;
+}
+#help #tab-menu.tab-6col2 li:first-child {
+  margin-left: 0;
+  width: 159px;
+}
+#help #tab-menu.tab-6col li {
+  width: 113px;
+}
+#help #tab-menu.tab-6col li.wd {
+  width: 130px;
+}
+#help #tab-menu.tab-6col li a,
+#help #tab-menu.tab-6col li em {
+  border: 1px solid #e3e3e3;
+  display: block;
+  height: auto !important;
+  height: 30px;
+  min-height: 30px;
+  padding: 5px 0 3px 5px;
+  text-align: center;
+}
+#help #tab-menu.tab-6col li a.wd,
+#help #tab-menu.tab-6col li em.wd {
+  text-align: left;
+}
+#help .icon {
+  margin-bottom: 0.3em;
+}
+#help .list-annotation li {
+  font-size: 100%;
+}
+#help * html .list-square li {
+  overflow: hidden;
+  zoom: 1;
+}
+#help .list-anchor-red {
+  align-items: center;
+  background: #f2f2f2;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1em;
+  padding: 9px 12px;
+  text-align: center;
+}
+#help .list-anchor-red li {
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  margin: 0;
+  padding: 0;
+  width: 320px;
+}
+#help .list-anchor-red li:not(:last-child) {
+  border-right: none;
+}
+#help .list-anchor-red a {
+  display: block;
+  padding: 0.25em 11px;
+  text-align: center;
+}
+#help .list-anchor-red span {
+  background: url(../img/help/arr_open.png) no-repeat 0 0.5em;
+  display: inline-block;
+  padding-left: 12px;
+}
+#contents #help .list-anchor-red {
+  background-color: #f2f2f2;
+  background-image: none;
+  border-radius: 4px;
+  text-align: center;
+}
+* html .column-2 #help .list-anchor-red {
+  margin-bottom: 2em;
+}
+
+#help {
+  /* $headings -------------------- */
+  /* ----------------------------------------
+  $others
+  ---------------------------------------- */
+  /* $margin -------------------- */
+  /* $position -------------------- */
+  /* $border -------------------- */
+  /* ----------------------------------------
+  $table & background
+  ---------------------------------------- */
+  /* ----------------------------------------
+  $text
+  ---------------------------------------- */
+  /* ----------------------------------------
+  $listmark
+  ---------------------------------------- */
+  /* ----------------------------------------
+  $tab-contents, $tabmenu
+  ---------------------------------------- */
+  /* ----------------------------------------
+  clearfix
+  ---------------------------------------- */
+  /* ----------------------------------------
+  popup header logo
+  ---------------------------------------- */
+}
+#help .bar {
+  background: #000;
+  color: #fff;
+  font-size: 20px !important;
+  font-weight: normal;
+  line-height: 1.8;
+  padding: 5px 13px 4px;
+}
+#help .bar a {
+  color: #fff;
+}
+#help .bar + p,
+#help .bar + .subhead {
+  margin-top: 10px;
+}
+#help .margintop0 {
+  margin-top: 0 !important;
+}
+#help .margintop10 {
+  margin-top: 10px !important;
+}
+#help .marginleft0 {
+  margin-left: 0 !important;
+}
+#help .margincenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+#help .relative {
+  display: block;
+  position: relative;
+}
+#help .absolute {
+  position: absolute;
+}
+#help .separatorline {
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+}
+#help .separatorline > *:first-child, .contnt-left #help .separatorline, .contnt-right #help .separatorline {
+  margin-top: 30px !important;
+}
+#help .border-cleargray {
+  border-color: #f0f0f0;
+  border-style: solid;
+}
+#help table {
+  font-size: 1.4rem;
+  width: 100%;
+}
+#help table.border, #help table.bg-gray {
+  border-left: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+}
+#help table.border th,
+#help table.border td, #help table.bg-gray th,
+#help table.bg-gray td {
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  padding: 0.5em 10px;
+}
+#help table.center th, #help table.center td {
+  text-align: center;
+}
+#help table.bg-gray {
+  max-width: 800px;
+}
+#help table.bg-gray thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+}
+#help table.bg-gray tbody th {
+  background-color: #fafafa;
+}
+#help .bg-gray {
+  background-color: #666;
+}
+#help table.bg-gray {
+  background-color: #fff;
+}
+#help .bg-red {
+  background-color: #c80233;
+}
+#help .left {
+  text-align: left;
+}
+#help .center {
+  text-align: center;
+}
+#help .right {
+  text-align: right;
+}
+#help .small {
+  font-size: 12px;
+}
+#help .red {
+  color: #c70232;
+}
+#help .listmark,
+#help .asterisk,
+#help .dot,
+#help .kome,
+#help .square {
+  padding-left: 1em;
+  position: relative;
+}
+#help .listmark > li,
+#help .listmark > dt,
+#help .asterisk > li,
+#help .asterisk > dt,
+#help .dot > li,
+#help .dot > dt,
+#help .kome > li,
+#help .kome > dt,
+#help .square > li,
+#help .square > dt {
+  padding-left: 1em;
+  position: relative;
+}
+#help .listmark > li:before,
+#help .listmark > dt:before,
+#help .asterisk > li:before,
+#help .asterisk > dt:before,
+#help .dot > li:before,
+#help .dot > dt:before,
+#help .kome > li:before,
+#help .kome > dt:before,
+#help .square > li:before,
+#help .square > dt:before {
+  display: block;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1em;
+}
+#help .listmark:before,
+#help .asterisk:before,
+#help .dot:before,
+#help .kome:before,
+#help .square:before {
+  content: "" !important;
+}
+#help .listmark.asterisk:before,
+#help .asterisk.asterisk:before,
+#help .dot.asterisk:before,
+#help .kome.asterisk:before,
+#help .square.asterisk:before {
+  content: "＊";
+}
+#help .listmark.dot:before,
+#help .listmark #footer-nav .wrapper > ul ul li:before,
+#help .asterisk.dot:before,
+#help .asterisk #footer-nav .wrapper > ul ul li:before,
+#help .dot.dot:before,
+#help .dot #footer-nav .wrapper > ul ul li:before,
+#help .kome.dot:before,
+#help .kome #footer-nav .wrapper > ul ul li:before,
+#help .square.dot:before,
+#help .square #footer-nav .wrapper > ul ul li:before {
+  content: "・";
+}
+#help .listmark.kome:before,
+#help .asterisk.kome:before,
+#help .dot.kome:before,
+#help .kome.kome:before,
+#help .square.kome:before {
+  content: "※";
+}
+#help .listmark.square:before,
+#help .asterisk.square:before,
+#help .dot.square:before,
+#help .kome.square:before,
+#help .square.square:before {
+  content: "■";
+}
+#help ul.listmark,
+#help dl.listmark {
+  padding-left: 0;
+}
+#help span.listmark:before {
+  line-height: 1;
+}
+#help #tabmenu {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+  margin-top: 32px;
+  text-align: center;
+}
+#help #tabmenu > li {
+  background-color: #fbfbfb;
+  border: 1px solid #ddd;
+  display: inline-block;
+  left: 0;
+  margin-left: 2px;
+  position: relative;
+  text-align: center;
+  top: 1px;
+}
+#help #tabmenu > li:first-child {
+  margin-left: 0;
+}
+#help #tabmenu > li.current {
+  border-bottom-color: #fff;
+}
+#help #tabmenu > li.current a {
+  background-color: #fff;
+}
+#help #tabmenu > li.current a span {
+  border-bottom: 3px solid #ca0a37;
+  color: #ca0a37;
+  display: inline-block;
+  padding-bottom: 1px;
+}
+#help #tabmenu > li a {
+  box-sizing: border-box;
+  color: #505050;
+  display: block;
+  font-size: 12px;
+  height: 43px;
+  padding-top: 10px;
+  text-decoration: none;
+  width: 114px;
+}
+#help #tabmenu > li ul {
+  background-color: #848484;
+  display: none;
+  left: -1px;
+  position: absolute;
+  top: 44px;
+  width: 116px;
+}
+#help #tabmenu > li ul li:not(:last-child) {
+  border-bottom: 1px solid #c2c2c2;
+}
+#help #tabmenu > li ul a {
+  color: #fff;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 6px;
+  text-decoration: none;
+}
+#help .cf:before, #help .cf:after {
+  content: "";
+  display: table;
+}
+#help .cf:after {
+  clear: both;
+}
+#help .clear {
+  clear: both;
+}
+#help #popup header#popup-custom .logo {
+  left: 0;
+  margin: auto;
+  margin-top: 5px;
+  position: absolute;
+  right: 0;
+}
