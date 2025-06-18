@@ -28,6 +28,7 @@
       display: block;
       cursor: pointer;
     }
+    /* 通常は枠線なし */
     .color-block {
       width: 100px;
       height: 100px;
@@ -59,17 +60,17 @@
     const totalQuestions = 20;
     let currentQuestion = 0;
     let score = 0;
-    // 今回の選択肢（オブジェクト）配列と、正解インデックスを格納
+    // 現在の選択肢（オブジェクト）の配列と、正解のインデックスを格納
     let currentChoices = [];
     let correctIndex = null;
     let correctColor = null;
-
+    
     const questionTextElem = document.getElementById('questionText');
     const questionCounterElem = document.getElementById('questionCounter');
     const colorChoicesElem = document.getElementById('colorChoices');
     const submitBtn = document.getElementById('submitBtn');
     const messageElem = document.getElementById('message');
-
+    
     // JSONファイルを読み込み
     fetch('colors.json')
       .then(response => response.json())
@@ -81,7 +82,7 @@
         console.error("JSON読み込みエラー:", error);
         messageElem.textContent = "色データの読み込みに失敗しました。";
       });
-
+    
     // 配列をシャッフルする関数（Fisher-Yatesアルゴリズム）
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -90,7 +91,7 @@
       }
       return array;
     }
-
+    
     // 次の問題をセットアップする
     function nextQuestion() {
       // 全問終了なら結果表示
@@ -106,43 +107,43 @@
       // 残り問題数の更新
       questionCounterElem.textContent = totalQuestions - currentQuestion + 1;
       
-      // 正解となる色データをランダムに１件選択
+      // 正解となる色データをランダムに1件選択
       correctColor = colorsData[Math.floor(Math.random() * colorsData.length)];
-
-      // 問題文：色名を表示（例："スカイブルー"）
-      questionTextElem.textContent = "次の色名「" + correctColor.name + "」に該当するカラーを選んでください。";
+    
+      // 問題文：色名を表示
+      questionTextElem.textContent = "「" + correctColor.name + "」に該当するカラーを選んでください。";
       
-      // 選択肢： 正解と、他の3色をランダムに選ぶ
+      // 選択肢：正解と、他の3色をランダムに選ぶ
       let choicesPool = colorsData.filter(color => color.name !== correctColor.name);
       choicesPool = shuffle(choicesPool);
-      // 正解以外3件を選出
+      // 正解以外の3件を選出
       let otherChoices = choicesPool.slice(0, 3);
-      // 選択肢配列に正解と他の選択肢を結合
+      // 選択肢配列に正解とその他を結合
       currentChoices = otherChoices.concat(correctColor);
       // 選択肢をシャッフルしてランダムな順番にする
       currentChoices = shuffle(currentChoices);
       // 正解のインデックスを格納
       correctIndex = currentChoices.findIndex(choice => choice.name === correctColor.name);
-
+    
       // 選択肢をDOM上に表示（ラジオボタン＋カラーブロック）
       currentChoices.forEach((choice, index) => {
         const container = document.createElement('div');
         container.className = "choice";
-
+    
         const label = document.createElement('label');
-
+    
         const radio = document.createElement('input');
         radio.type = "radio";
         radio.name = "colorOption";
         radio.value = index;
         label.appendChild(radio);
-
-        // カラーブロックの作成
+    
+        // カラーブロックの作成（初期状態では枠線はなし）
         const colorBlock = document.createElement('div');
         colorBlock.className = "color-block";
         colorBlock.style.backgroundColor = choice.code;
         label.appendChild(colorBlock);
-
+    
         container.appendChild(label);
         colorChoicesElem.appendChild(container);
       });
@@ -151,7 +152,7 @@
       submitBtn.textContent = "回答する";
       submitBtn.disabled = false;
     }
-
+    
     // 回答ボタンのクリックイベントハンドラ
     submitBtn.addEventListener('click', () => {
       const radios = document.getElementsByName("colorOption");
@@ -161,21 +162,30 @@
           selected = parseInt(radio.value);
         }
       });
-
+    
       if (selected === -1) {
         messageElem.textContent = "いずれか選択してください。";
         messageElem.style.color = "red";
         return;
       }
-
+    
       // 正誤判定
       if (selected === correctIndex) {
         messageElem.textContent = "正解です！";
         messageElem.style.color = "green";
         score++;
       } else {
-        messageElem.textContent = "不正解です… 正解は右側の色でした。";
+        // 不正解の場合、正解が左から何番目のカラーか表示
+        messageElem.textContent = "不正解です… 正解は左から" + (correctIndex + 1) + "番目のカラーでした。";
         messageElem.style.color = "red";
+        // 正解のカラーブロックに黒い枠線を付加（例：5pxの黒線）
+        const correctOptionElem = colorChoicesElem.children[correctIndex];
+        if(correctOptionElem){        
+          const colorBlock = correctOptionElem.querySelector(".color-block");
+          if(colorBlock){
+            colorBlock.style.border = "5px solid black";
+          }
+        }
       }
       
       // 回答後、一時的にボタンを無効化
@@ -186,8 +196,8 @@
         nextQuestion();
       }, 1500);
     });
-
-    // 結果表示
+    
+    // 全20問終了後の結果表示
     function showResult() {
       let percentage = Math.round((score / totalQuestions) * 100);
       questionTextElem.textContent = "";
