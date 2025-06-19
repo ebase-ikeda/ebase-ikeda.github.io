@@ -118,7 +118,7 @@
       correctColor = availableCorrectColors.shift();
       
       // 問題文表示：例「「スカイブルー」に該当するカラーを選んでください。」
-      questionTextElem.textContent = "「" + correctColor.name + "」に該当するカラーを選んでください。";
+      questionTextElem.textContent = "「" + correctColor.name + "」のカラーはどれですか？";
       
       // 選択肢： 正解およびその他3件をランダムに選ぶ
       let choicesPool = colorsData.filter(color => color.name !== correctColor.name);
