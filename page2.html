@@ -21,18 +21,22 @@
       gap: 1em;
       margin-bottom: 1em;
     }
+    /* 各選択肢のコンテナ：画面幅に合わせて最大150px、柔軟に並ぶ */
     .choice {
-      cursor: pointer;
+      flex: 1 1 150px;
+      max-width: 150px;
     }
+    /* カラー表示ブロック（初期状態では枠線なし） */
+    .color-block {
+      width: 100%;
+      height: 100px;
+      background-color: gray;
+      margin-bottom: 0.5em;
+    }
+    /* ラジオボタンはカラーの下に配置 */
     .choice label {
       display: block;
       cursor: pointer;
-    }
-    /* 通常は枠線なし */
-    .color-block {
-      width: 100px;
-      height: 100px;
-      margin-top: 0.5em;
     }
     #message {
       font-size: 1.2em;
@@ -49,18 +53,19 @@
   <div>残り問題数：<span id="questionCounter">20</span> 問</div>
   <div id="questionText"></div>
   <div id="colorChoices">
-    <!-- カラーブロック付きラジオボタンの選択肢をここに生成 -->
+    <!-- カラー選択肢（カラー表示ブロック＋ラジオボタン）がここに生成されます -->
   </div>
   <button id="submitBtn">回答する</button>
   <div id="message"></div>
   
   <script>
     let colorsData = [];
+    // 同じ正解が出題されないように、使用可能な正解データをここに保持
+    let availableCorrectColors = [];
     
     const totalQuestions = 20;
     let currentQuestion = 0;
     let score = 0;
-    // 現在の選択肢（オブジェクト）の配列と、正解のインデックスを格納
     let currentChoices = [];
     let correctIndex = null;
     let correctColor = null;
@@ -71,11 +76,13 @@
     const submitBtn = document.getElementById('submitBtn');
     const messageElem = document.getElementById('message');
     
-    // JSONファイルを読み込み
+    // JSONファイルの読み込み
     fetch('colors.json')
       .then(response => response.json())
       .then(data => {
         colorsData = data;
+        // 使用可能な正解データとして、colorsData の全データをシャッフルして利用
+        availableCorrectColors = shuffle([...colorsData]);
         nextQuestion();
       })
       .catch(error => {
@@ -83,7 +90,7 @@
         messageElem.textContent = "色データの読み込みに失敗しました。";
       });
     
-    // 配列をシャッフルする関数（Fisher-Yatesアルゴリズム）
+    // Fisher–Yatesアルゴリズムによる配列シャッフル
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -92,10 +99,10 @@
       return array;
     }
     
-    // 次の問題をセットアップする
+    // 次の問題をセットアップ
     function nextQuestion() {
-      // 全問終了なら結果表示
-      if (currentQuestion >= totalQuestions) {
+      // 全問終了もしくは使用可能な正解がなくなったら結果表示
+      if (currentQuestion >= totalQuestions || availableCorrectColors.length === 0) {
         showResult();
         return;
       }
@@ -103,61 +110,55 @@
       currentQuestion++;
       messageElem.textContent = "";
       colorChoicesElem.innerHTML = "";
-      
-      // 残り問題数の更新
       questionCounterElem.textContent = totalQuestions - currentQuestion + 1;
       
-      // 正解となる色データをランダムに1件選択
-      correctColor = colorsData[Math.floor(Math.random() * colorsData.length)];
-    
-      // 問題文：色名を表示
+      // 正解の色データを使用可能なものから取得
+      correctColor = availableCorrectColors.shift();
+      
+      // 問題文表示：例「「スカイブルー」に該当するカラーを選んでください。」
       questionTextElem.textContent = "「" + correctColor.name + "」に該当するカラーを選んでください。";
       
-      // 選択肢：正解と、他の3色をランダムに選ぶ
+      // 選択肢： 正解およびその他3件をランダムに選ぶ
       let choicesPool = colorsData.filter(color => color.name !== correctColor.name);
       choicesPool = shuffle(choicesPool);
-      // 正解以外の3件を選出
       let otherChoices = choicesPool.slice(0, 3);
-      // 選択肢配列に正解とその他を結合
       currentChoices = otherChoices.concat(correctColor);
-      // 選択肢をシャッフルしてランダムな順番にする
       currentChoices = shuffle(currentChoices);
-      // 正解のインデックスを格納
       correctIndex = currentChoices.findIndex(choice => choice.name === correctColor.name);
-    
-      // 選択肢をDOM上に表示（ラジオボタン＋カラーブロック）
+      
+      // 各選択肢の要素を作成（カラー表示ブロック＋ラジオボタン）
       currentChoices.forEach((choice, index) => {
         const container = document.createElement('div');
         container.className = "choice";
     
-        const label = document.createElement('label');
+        // カラー表示ブロックを作成
+        const colorBlock = document.createElement('div');
+        colorBlock.className = "color-block";
+        colorBlock.style.backgroundColor = choice.code;
+        container.appendChild(colorBlock);
     
+        // ラジオボタンを作成（カラーの下に配置）
+        const label = document.createElement('label');
         const radio = document.createElement('input');
         radio.type = "radio";
         radio.name = "colorOption";
         radio.value = index;
         label.appendChild(radio);
-    
-        // カラーブロックの作成（初期状態では枠線はなし）
-        const colorBlock = document.createElement('div');
-        colorBlock.className = "color-block";
-        colorBlock.style.backgroundColor = choice.code;
-        label.appendChild(colorBlock);
-    
+        label.appendChild(document.createTextNode(" 選択"));
         container.appendChild(label);
+    
         colorChoicesElem.appendChild(container);
       });
       
-      // ボタンの状態リセット
       submitBtn.textContent = "回答する";
       submitBtn.disabled = false;
     }
     
-    // 回答ボタンのクリックイベントハンドラ
+    // 回答ボタンのクリックイベント
     submitBtn.addEventListener('click', () => {
       const radios = document.getElementsByName("colorOption");
       let selected = -1;
-      radios.forEach((radio) => {
+      radios.forEach(radio => {
         if (radio.checked) {
           selected = parseInt(radio.value);
         }
@@ -169,35 +170,31 @@
         return;
       }
     
-      // 正誤判定
       if (selected === correctIndex) {
         messageElem.textContent = "正解です！";
         messageElem.style.color = "green";
         score++;
       } else {
-        // 不正解の場合、正解が左から何番目のカラーか表示
         messageElem.textContent = "不正解です… 正解は左から" + (correctIndex + 1) + "番目のカラーでした。";
         messageElem.style.color = "red";
-        // 正解のカラーブロックに黒い枠線を付加（例：5pxの黒線）
+        // 正解のカラーブロックに黒い枠線を追加
         const correctOptionElem = colorChoicesElem.children[correctIndex];
-        if(correctOptionElem){        
+        if (correctOptionElem) {
           const colorBlock = correctOptionElem.querySelector(".color-block");
-          if(colorBlock){
+          if (colorBlock) {
             colorBlock.style.border = "5px solid black";
           }
         }
       }
       
-      // 回答後、一時的にボタンを無効化
       submitBtn.disabled = true;
       
-      // 1.5秒後に次の問題へ
       setTimeout(() => {
         nextQuestion();
       }, 1500);
     });
     
-    // 全20問終了後の結果表示
+    // 結果表示
     function showResult() {
       let percentage = Math.round((score / totalQuestions) * 100);
       questionTextElem.textContent = "";
