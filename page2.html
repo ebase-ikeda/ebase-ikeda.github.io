@@ -14,19 +14,19 @@
       font-size: 1.5em;
       margin-bottom: 1em;
     }
+    /* grid レイアウトで4列表示 */
     #colorChoices {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 1em;
       margin-bottom: 1em;
     }
-    /* 各選択肢のコンテナ：画面幅に合わせて最大150px、柔軟に並ぶ */
+    /* 各選択肢のコンテナ：画面幅に合わせながら最大幅は150px */
     .choice {
-      flex: 1 1 150px;
       max-width: 150px;
+      margin: 0 auto;
     }
-    /* カラー表示ブロック（初期状態では枠線なし） */
+    /* カラー表示ブロック（初期状態は枠線なし） */
     .color-block {
       width: 100%;
       height: 100px;
